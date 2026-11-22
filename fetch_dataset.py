@@ -16,7 +16,10 @@ import urllib.request
 
 
 def get_json(url):
-    with urllib.request.urlopen(url, timeout=30) as resp:
+    req = urllib.request.Request(url, headers={
+    "User-Agent": "fetch_dataset/1.0 (learning project)",
+    "Accept": "application/json",
+    })
         return json.load(resp)
 
 
